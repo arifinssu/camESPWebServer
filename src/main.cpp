@@ -4,11 +4,10 @@
 #include <ESP8266mDNS.h>
 #include "camESPWebServer.h"
 
-const char *ssid = "dev";
-const char *pass = "ngapain?";
+const char *ssid = "YOURWIFI";
+const char *pass = "WIFIPASS";
 
 camESP8266WebServer server(80);
-
 const int led = D2;
 
 void handleRoot()
@@ -43,6 +42,7 @@ void setup()
   digitalWrite(led, 0);
 
   // GPIO 02 Tx only / Rx used for onboard flash?
+  // No debug message (Serial monitor) used by camera
   Serial1.begin(115200);
 
   WiFi.begin(ssid, pass);
